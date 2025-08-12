@@ -5,4 +5,5 @@ resolver = "3"
 [workspace.package]
 license = "MIT"
 license-file = "LICENSE"
+readme = "README.md"
 authors = ["Nekes <nekes@riseup.net>"]
