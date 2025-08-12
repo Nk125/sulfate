@@ -6,4 +6,5 @@ resolver = "3"
 license = "MIT"
 license-file = "LICENSE"
 readme = "README.md"
+repository = "https://github.com/Nk125/sulfate"
 authors = ["Nekes <nekes@riseup.net>"]
