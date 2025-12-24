@@ -8,3 +8,5 @@ repository.workspace = true
 authors.workspace = true
 
 [dependencies]
+sulfate_core = { path = "../sulfate_core" }
+sysinfo = "0.37.2"
