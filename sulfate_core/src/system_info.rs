@@ -26,6 +26,7 @@ pub struct DiskInfo {
     pub total_capacity_in_mb: u64,
     pub mount_path: String,
     pub name: String,
+    pub filesystem: String,
     pub disk_type: String,
     pub is_removable: bool,
     pub is_read_only: bool,

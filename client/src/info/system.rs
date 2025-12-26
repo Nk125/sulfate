@@ -55,11 +55,14 @@ fn disk_info_adapter(disk: &Disk) -> DiskInfo {
     let mount_path = disk.mount_point().to_string_lossy().to_string();
     let name = disk.name().to_string_lossy().to_string();
 
+    let filesystem = disk.file_system().to_string_lossy().to_string();
+
     DiskInfo {
         available_capacity_in_mb,
         total_capacity_in_mb,
         mount_path,
         name,
+        filesystem,
         disk_type: disk.kind().to_string(),
         is_removable: disk.is_removable(),
         is_read_only: disk.is_read_only(),
