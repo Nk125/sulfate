@@ -1,4 +1,4 @@
-use sulfate_core::system_info::{CpuInfo, DiskInfo, OperatingSystemInfo, RamInfo};
+use sulfate_core::system_info::*;
 use sysinfo::{Disk, Disks, Motherboard, Product, System};
 
 const BYTES_IN_A_MEGABYTE: u64 = 1000 * 1000;
@@ -70,6 +70,22 @@ fn disks_info() -> Vec<DiskInfo> {
         .collect()
 }
 
+fn product_info() -> ProductInfo {
+    let name = Product::name().unwrap_or("Unknown Product Name".into());
+    let version = Product::version().unwrap_or("Unknown Product Version".into());
+    let family = Product::family().unwrap_or("Unknown Product Family".into());
+    let vendor = Product::vendor_name().unwrap_or("Unknown Product Vendor".into());
+    let serial_number = Product::serial_number().unwrap_or("Unknown Product S/N".into());
+
+    ProductInfo {
+        name,
+        version,
+        family,
+        vendor,
+        serial_number,
+    }
+}
+
 pub fn get_os_info() -> OperatingSystemInfo {
     let name = System::name().unwrap_or("Unknown".into());
     let hwid = Product::uuid();
@@ -89,5 +105,6 @@ pub fn get_os_info() -> OperatingSystemInfo {
         cpu,
         ram,
         disks: disks_info(),
+        product_info: product_info(),
     }
 }

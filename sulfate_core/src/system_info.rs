@@ -8,6 +8,16 @@ pub struct OperatingSystemInfo {
     pub ram: RamInfo,
     pub cpu: CpuInfo,
     pub motherboard: Option<String>,
+    pub product_info: ProductInfo,
+}
+
+#[derive(Debug)]
+pub struct ProductInfo {
+    pub name: String,
+    pub version: String,
+    pub family: String,
+    pub vendor: String,
+    pub serial_number: String,
 }
 
 #[derive(Debug)]
