@@ -95,6 +95,7 @@ fn product_info() -> ProductInfo {
 
 pub fn get_os_info() -> OperatingSystemInfo {
     let name = System::name().unwrap_or("Unknown".into());
+    let hostname = System::host_name().unwrap_or("Unknown hostname".into());
     let hwid = Product::uuid();
     let version = System::long_os_version();
     let kernel = System::kernel_long_version();
@@ -105,6 +106,7 @@ pub fn get_os_info() -> OperatingSystemInfo {
 
     OperatingSystemInfo {
         name,
+        hostname,
         hwid,
         version,
         kernel,

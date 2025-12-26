@@ -1,6 +1,7 @@
 #[derive(Debug)]
 pub struct OperatingSystemInfo {
     pub name: String,
+    pub hostname: String,
     pub hwid: Option<String>,
     pub version: Option<String>,
     pub kernel: String,
