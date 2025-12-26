@@ -41,4 +41,6 @@ pub struct RamInfo {
 pub struct CpuInfo {
     pub arch: String,
     pub branding: String,
+    pub cores: Option<usize>,
+    pub logical_cores: usize,
 }

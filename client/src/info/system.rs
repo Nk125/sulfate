@@ -14,8 +14,8 @@ fn format_motherboard_info(motherboard: Motherboard) -> String {
 
 fn system_characteristics() -> (CpuInfo, RamInfo) {
     let system = System::new_all();
-    let cpu_branding = system
-        .cpus()
+    let cpus = system.cpus();
+    let cpu_branding = cpus
         .first()
         .map(|cpu| {
             format!(
@@ -23,11 +23,13 @@ fn system_characteristics() -> (CpuInfo, RamInfo) {
                 cpu.brand(),
                 cpu.name(),
                 cpu.vendor_id(),
-                cpu.frequency()
+                cpu.frequency(),
             )
         })
         .unwrap_or("Unknown CPU".into());
     let cpu_arch = System::cpu_arch();
+    let cpu_cores = sysinfo::System::physical_core_count();
+    let cpu_logical_cores = cpus.len();
 
     let installed_ram_in_mb = system.total_memory() / BYTES_IN_A_MEGABYTE;
     let used_ram_in_mb = system.used_memory() / BYTES_IN_A_MEGABYTE;
@@ -36,6 +38,8 @@ fn system_characteristics() -> (CpuInfo, RamInfo) {
         CpuInfo {
             arch: cpu_arch,
             branding: cpu_branding,
+            cores: cpu_cores,
+            logical_cores: cpu_logical_cores,
         },
         RamInfo {
             installed_ram_in_mb,
