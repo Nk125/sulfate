@@ -4,6 +4,7 @@ use super::prelude::*;
 pub struct Debug;
 
 impl<'a> Transport for &'a Debug {
+    type Output = ();
     #[inline(always)]
     fn send(self, message: ProtocolData) {
         println!("Message: {message:#?}");
