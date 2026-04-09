@@ -1,5 +1,5 @@
 use client::info;
-use client::transport::*;
+use sulfate_core::transport::{Debug, prelude::*};
 
 fn main() {
     let debug_transport = &Debug {};
