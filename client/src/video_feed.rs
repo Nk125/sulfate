@@ -29,8 +29,14 @@ impl ScreenVideoFeed {
         self.record_handler.stop()
     }
 
-    pub fn next_frame(&self) -> Option<RawVideoFrame> {
-        self.frame_receiver.try_recv().ok().map(|frame| RawVideoFrame {
+    pub fn latest_frame(&self) -> Option<RawVideoFrame> {
+        let mut latest_frame = None;
+
+        while let Ok(frame) = self.frame_receiver.try_recv() {
+            latest_frame = Some(frame)
+        }
+
+        latest_frame.map(|frame| RawVideoFrame {
             width: frame.width,
             height: frame.height,
             bytes: frame.raw,
