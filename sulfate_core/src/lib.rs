@@ -4,3 +4,5 @@ pub mod protocol;
 pub mod system_info;
 /// Transport primitives and helpers.
 pub mod transport;
+/// Common struct for video transmittion.
+pub mod video_feed;
