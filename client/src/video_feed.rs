@@ -8,11 +8,11 @@ pub struct ScreenVideoFeed {
 }
 
 impl ScreenVideoFeed {
-    pub fn available_monitors() -> Result<Vec<Monitor>> {
+    pub fn fetch_available_monitors() -> Result<Vec<Monitor>> {
         xcap::Monitor::all()
     }
 
-    pub fn new(monitor: Monitor) -> Result<Self> {
+    pub fn record_monitor(monitor: Monitor) -> Result<Self> {
         let (record_handler, frame_receiver) = monitor.video_recorder()?;
 
         Ok(ScreenVideoFeed {
