@@ -32,6 +32,7 @@ impl ScreenVideoFeed {
     pub fn latest_frame(&self) -> Option<RawVideoFrame> {
         let mut latest_frame = None;
 
+        // Process every frame left in buffer, to get to the last one.
         while let Ok(frame) = self.frame_receiver.try_recv() {
             latest_frame = Some(frame)
         }
