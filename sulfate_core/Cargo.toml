@@ -6,3 +6,7 @@ license.workspace = true
 readme.workspace = true
 repository.workspace = true
 authors.workspace = true
+
+[dependencies]
+rkyv = "0.8.17"
+thiserror = "2.0.19"
