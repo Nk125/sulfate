@@ -9,5 +9,6 @@ authors.workspace = true
 
 [dependencies]
 sulfate_core = { path = "../sulfate_core" }
-sysinfo = "0.38.4"
-xcap = "0.9.3"
+sysinfo = "0.39.6"
+tokio = { version = "1.53.1", features = ["full"] }
+xcap = "0.9.8"
