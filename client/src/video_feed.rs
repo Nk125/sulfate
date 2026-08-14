@@ -12,7 +12,7 @@ impl ScreenVideoFeed {
         xcap::Monitor::all()
     }
 
-    pub fn record_monitor(monitor: Monitor) -> Result<Self> {
+    pub fn record_monitor(monitor: &Monitor) -> Result<Self> {
         let (record_handler, frame_receiver) = monitor.video_recorder()?;
 
         Ok(ScreenVideoFeed {
