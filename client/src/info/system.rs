@@ -28,8 +28,8 @@ fn system_characteristics() -> (CpuInfo, RamInfo) {
         })
         .unwrap_or("Unknown CPU".into());
     let cpu_arch = System::cpu_arch();
-    let cpu_cores = sysinfo::System::physical_core_count();
-    let cpu_logical_cores = cpus.len();
+    let cpu_cores = sysinfo::System::physical_core_count().map(|n| n as u32);
+    let cpu_logical_cores = cpus.len() as u32;
 
     let installed_ram_in_mb = system.total_memory() / BYTES_IN_A_MEGABYTE;
     let used_ram_in_mb = system.used_memory() / BYTES_IN_A_MEGABYTE;

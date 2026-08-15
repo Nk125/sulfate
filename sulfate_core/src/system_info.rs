@@ -1,4 +1,7 @@
-#[derive(Debug)]
+use rkyv::{Archive, Deserialize, Serialize};
+
+#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
+#[rkyv(compare(PartialEq), derive(Debug))]
 pub struct OperatingSystemInfo {
     pub name: String,
     pub hostname: String,
@@ -12,7 +15,8 @@ pub struct OperatingSystemInfo {
     pub product_info: ProductInfo,
 }
 
-#[derive(Debug)]
+#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
+#[rkyv(compare(PartialEq), derive(Debug))]
 pub struct ProductInfo {
     pub name: String,
     pub version: String,
@@ -21,7 +25,8 @@ pub struct ProductInfo {
     pub serial_number: String,
 }
 
-#[derive(Debug)]
+#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
+#[rkyv(compare(PartialEq), derive(Debug))]
 pub struct DiskInfo {
     pub available_capacity_in_mb: u64,
     pub total_capacity_in_mb: u64,
@@ -33,16 +38,18 @@ pub struct DiskInfo {
     pub is_read_only: bool,
 }
 
-#[derive(Debug)]
+#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
+#[rkyv(compare(PartialEq), derive(Debug))]
 pub struct RamInfo {
     pub installed_ram_in_mb: u64,
     pub used_ram_in_mb: u64,
 }
 
-#[derive(Debug)]
+#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
+#[rkyv(compare(PartialEq), derive(Debug))]
 pub struct CpuInfo {
     pub arch: String,
     pub branding: String,
-    pub cores: Option<usize>,
-    pub logical_cores: usize,
+    pub cores: Option<u32>,
+    pub logical_cores: u32,
 }

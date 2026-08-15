@@ -1,3 +1,5 @@
+pub use rkyv;
+
 /// Simple enum for transport purposes.
 pub mod protocol;
 /// Information about client's hardware.
