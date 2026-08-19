@@ -1,9 +1,13 @@
 [workspace]
-members = ["client", "server", "sulfate_core"]
+members = [
+    "client",
+    "server",
+    "sulfate_core",
+]
 resolver = "3"
 
 [workspace.package]
-license = "MIT"
-readme = "README.md"
-repository = "https://github.com/Nk125/sulfate"
 authors = ["Nekes <nekes@riseup.net>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/Nk125/sulfate"
