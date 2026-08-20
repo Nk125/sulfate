@@ -3,3 +3,5 @@ Cargo.lock
 debug/
 target/
 **/*.rs.bk
+.env
+.DS_Store
