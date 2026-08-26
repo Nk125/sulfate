@@ -10,6 +10,8 @@ The successor of [Sulphur], now written in Rust.
 
 I'm still working on them, but every feature from Sulphur is planned to be here.
 
+## Configuration
+
 * Server config customization with .env:
 
 You can customize the server using env variables or modifying the .env file:
@@ -20,6 +22,15 @@ cargo run --release --bin server
 # Or modify the input with env variables
 export SULFATE_SERVER_LISTEN_ADDR=0.0.0.0:80
 cargo run --release --bin server
+```
+
+* Client C2 address
+
+Modify the file in `client/src/build_config.rs` to insert your own hostname:
+
+```rust
+/// C2 hostname and port.
+const C2_ADDRESS: &str = "127.0.0.1:5566";
 ```
 
 ## TO-DOs
