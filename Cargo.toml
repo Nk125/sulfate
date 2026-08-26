@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "client",
+    "consumer",
     "server",
     "sulfate_core",
 ]
